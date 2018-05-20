@@ -20,7 +20,7 @@
 	<div class="form">
 		<div><input type="button" value="本地" onclick="welcome('欢迎')"></div>
 		<div>tag：<input type="text" class="form_text"><br/></div>
-		<div><input type="button" value="上传" onclick="welcome('欢迎')"></div>
+		<div><input type="file" value="上传" onclick="welcome('欢迎')"></div>
 	</div>
 .
 	    
