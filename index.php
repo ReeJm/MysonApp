@@ -23,7 +23,8 @@
 	 	<img src="http://www.w3school.com.cn/ui2017/logo-144.png"/><br/>
 	 	<input type="text" class="form_text"><br/>
 	 	<input type="text" class="form_text"><br/>
-	 	<input type="button" value="登录" onclick="welcome('欢迎')"> <input type="button" value="注册" onclick="welcome('注册')"><br/>
+	 	<input type="button" value="登录" onclick="welcome('欢迎')"> 
+	 	<input type="button" value="注册" onclick="welcome('注册')"><br/>
 		<a href="pictures.php">跳转</a>
     </div>
 
