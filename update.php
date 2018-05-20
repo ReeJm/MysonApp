@@ -22,7 +22,7 @@
 		<div>tag：<input type="text" class="form_text"><br/></div>
 		<div><input type="button" value="上传" onclick="welcome('欢迎')"></div>
 	</div>
-
+.
 	    
     </div>
     </div>
@@ -32,7 +32,7 @@
 		<div>相册</div>
 		</div>
 		<div class="b1">
-		<img src="bottom.jpg" onclick="welcome('user-center.php')" />
+		<img src="bottom.jpg" onclick="welcome('update.php')" />
 		<div>发布</div>
 		</div>
 		<div class="b1">

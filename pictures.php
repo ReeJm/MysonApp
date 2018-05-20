@@ -66,7 +66,7 @@
 		<div>相册</div>
 		</div>
 		<div class="b1">
-		<img src="bottom.jpg" onclick="welcome('user-center.php')" />
+		<img src="bottom.jpg" onclick="welcome('update.php')" />
 		<div>发布</div>
 		</div>
 		<div class="b1">
