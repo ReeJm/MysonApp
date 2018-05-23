@@ -1,3 +1,29 @@
+<?php
+define('S_ROOT', dirname(__FILE__).DIRECTORY_SEPARATOR);
+include_once(S_ROOT.'/inc/config.php');
+include_once(S_ROOT."/inc/dbc.php");
+
+$json = array();
+// $sql = "INSERT INTO `users`(`name`, `sex`, `passwords`, `birthday`, `face`) VALUES ('wx13','male','sladfa','54564','6351651')";  
+	$sql = 'SELECT * from `photo` p left join `childlist` c on p.childlist_id =c.id left join `users` u on p.parents_id=u.id';
+
+
+global $db;
+try{
+	$t = $db->query($sql);
+	while($row = $db->fetch($t)){
+		array_push($json,$row);
+	}
+
+}catch (Exception $e){
+	$json =  $e->getMessage(); 
+}
+
+
+$db->close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,47 +44,28 @@
 			<div class="right"><img src="b2.jpg" width="20" height="20"></div>
 		</div>
 	<div class="content">
+	<?php
+	foreach ($json as $data){
+	?>
 	<div class="list block">
 		<div class="inline">	
-	 		<img class='jpg' src="http://qcloud.dpfile.com/pc/9VMpGkQ_Rr2gx3oguMdNhZ_Lm6WOkAymgUzY9MMBZ05BM8r1yidripH77e-mVDPx.jpg"/> 
+	 		<img class='jpg' src="<?=$data['url']?>"/> 
 		</div>
 
 	 	<div class="inline desc">
- 			<div class="block desc_title">title </div>
+ 			<div class="block desc_title"><?=$data['title']?> </div>
 
- 			<div class="block">by asdjjh <img src="like.jpg"/> <img src="like.jpg"/></div>
+ 			<div class="block">by <?=$data['name']?> <img src="like.jpg"/> <img src="like.jpg"/></div>
 	    </div>
 
 	    
     </div>
 
-    <div class="list block">
-		<div class="inline">	
-	 		<img class='jpg' src="http://qcloud.dpfile.com/pc/9VMpGkQ_Rr2gx3oguMdNhZ_Lm6WOkAymgUzY9MMBZ05BM8r1yidripH77e-mVDPx.jpg"/> 
-		</div>
+    <?php
+	}
+	?>
 
-	 	<div class="inline desc">
- 			<div class="block desc_title">title </div>
-
- 			<div class="block">by asdjjh <img src="like.jpg"/> <img src="like.jpg"/></div>
-	    </div>
-
-	    
-    </div>
-
-    <div class="list block">
-		<div class="inline">	
-	 		<img class='jpg' src="http://qcloud.dpfile.com/pc/9VMpGkQ_Rr2gx3oguMdNhZ_Lm6WOkAymgUzY9MMBZ05BM8r1yidripH77e-mVDPx.jpg"/> 
-		</div>
-
-	 	<div class="inline desc">
- 			<div class="block desc_title">title </div>
-
- 			<div class="block">by asdjjh <img src="like.jpg"/> <img src="like.jpg"/></div>
-	    </div>
-
-	    
-    </div>
+    
     </div>
 <div class="bottom">
 		<div class="b1">

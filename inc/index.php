@@ -3,12 +3,9 @@ define('S_ROOT', dirname(__FILE__).DIRECTORY_SEPARATOR);
 include_once(S_ROOT.'./config.php');
 include_once(S_ROOT."./dbc.php");
 
-$data = array(
-	"status"=>0,
-	"result"=>array()
-);
 $json = array();
-$sql = 'SELECT * FROM `users`';
+// $sql = "INSERT INTO `users`(`name`, `sex`, `passwords`, `birthday`, `face`) VALUES ('wx13','male','sladfa','54564','6351651')";  
+	$sql = 'select * from `users`';
 
 
 global $db;
@@ -18,11 +15,6 @@ try{
 		array_push($json,$row);
 	}
 
-	// if($t->num_rows>0){
-	// 	$json =  json_encode($row);
-	// }else{
-	// 	$json =  "{'status':'failed'}";
-	// }
 }catch (Exception $e){
 	$json =  $e->getMessage(); 
 }
@@ -36,7 +28,17 @@ $db->close();
 <html>
 <?php
 	foreach ($json as $data){
-		var_dump($data);
+?>
+
+	<span style="color:red" href="http://www.baidu.com">
+		<?=$data['name'] ?>
+	</span>
+
+	<span><?=$data['sex']?></span>
+	<br/>
+
+<?php
 	}
 ?>
+
 </html>
